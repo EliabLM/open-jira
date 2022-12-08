@@ -12,11 +12,15 @@ import {
 import InboxOutlinedIcon from '@mui/icons-material/InboxOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 
+import { useUIContext } from '../../hooks/useUIContext';
+
 const menuItems: string[] = ['Inbox', 'Starred', 'Send Email', 'Drafts'];
 
 export const Sidebar = () => {
+  const { sidemenuOpen, closeSideMenu } = useUIContext();
+
   return (
-    <Drawer anchor='left' open={true} onClose={() => console.log('Cerrando')}>
+    <Drawer anchor='left' open={sidemenuOpen} onClose={closeSideMenu}>
       <Box sx={{ width: 250 }}>
         <Box sx={{ padding: '5px 10px' }}>
           <Typography variant='h4'> Menu</Typography>
